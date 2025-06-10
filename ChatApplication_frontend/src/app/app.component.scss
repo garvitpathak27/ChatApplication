@@ -1,0 +1,50 @@
+.app-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidenav-container {
+  flex: 1;
+}
+
+.sidenav {
+  width: 250px;
+  background-color: #fafafa;
+  border-right: 1px solid #e0e0e0;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.content-area {
+  flex: 1;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.auth-layout {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .sidenav {
+    width: 200px;
+  }
+  
+  :host ::ng-deep .mat-sidenav-container .mat-sidenav {
+    position: fixed;
+  }
+}
+
+@media (max-width: 599px) {
+  .sidenav {
+    width: 100%;
+  }
+}

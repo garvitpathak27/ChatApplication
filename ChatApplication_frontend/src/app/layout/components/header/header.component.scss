@@ -1,0 +1,71 @@
+.header-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,.12);
+}
+
+.toolbar-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.menu-button {
+  margin-right: 16px;
+}
+
+.app-title {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  
+  mat-icon {
+    margin-right: 8px;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.user-menu {
+  .user-button {
+    color: white;
+    
+    .username {
+      margin: 0 8px;
+      max-width: 150px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
+
+.login-button {
+  color: white;
+  
+  mat-icon {
+    margin-right: 4px;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 18px;
+  }
+  
+  .user-button .username {
+    display: none;
+  }
+}

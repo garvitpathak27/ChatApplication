@@ -1,1 +1,76 @@
-<p>dashboard works!</p>
+<div class="dashboard-container">
+  <div class="welcome-section">
+    <mat-card class="welcome-card">
+      <mat-card-header>
+        <mat-card-title>Welcome to Your Dashboard</mat-card-title>
+        <mat-card-subtitle *ngIf="user">
+          Hello, {{ user.displayName || user.username }}!
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="user-info" *ngIf="user">
+          <p><strong>Username:</strong> {{ user.username }}</p>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p><strong>Display Name:</strong> {{ user.displayName || 'Not set' }}</p>
+          <p><strong>Account Status:</strong> {{ user.enabled ? 'Active' : 'Inactive' }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="test-section">
+    <mat-card class="test-card">
+      <mat-card-header>
+        <mat-card-title>API Endpoint Testing</mat-card-title>
+        <mat-card-subtitle>Test different security levels</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="test-grid">
+          <!-- Public Endpoint Test -->
+          <div class="test-item">
+            <button mat-raised-button color="primary" (click)="testPublicEndpoint()">
+              <mat-icon>public</mat-icon>
+              Test Public Endpoint
+            </button>
+            <div class="test-result" *ngIf="testResults.public">
+              <strong>Result:</strong> {{ testResults.public }}
+            </div>
+          </div>
+
+          <!-- Protected Endpoint Test -->
+          <div class="test-item">
+            <button mat-raised-button color="accent" (click)="testProtectedEndpoint()">
+              <mat-icon>security</mat-icon>
+              Test Protected Endpoint
+            </button>
+            <div class="test-result" *ngIf="testResults.protected">
+              <strong>Result:</strong> {{ testResults.protected }}
+            </div>
+          </div>
+
+          <!-- User Endpoint Test -->
+          <div class="test-item">
+            <button mat-raised-button color="primary" (click)="testUserEndpoint()">
+              <mat-icon>person</mat-icon>
+              Test User Endpoint
+            </button>
+            <div class="test-result" *ngIf="testResults.user">
+              <strong>Result:</strong> {{ testResults.user }}
+            </div>
+          </div>
+
+          <!-- Admin Endpoint Test -->
+          <div class="test-item">
+            <button mat-raised-button color="warn" (click)="testAdminEndpoint()">
+              <mat-icon>admin_panel_settings</mat-icon>
+              Test Admin Endpoint
+            </button>
+            <div class="test-result" *ngIf="testResults.admin">
+              <strong>Result:</strong> {{ testResults.admin }}
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

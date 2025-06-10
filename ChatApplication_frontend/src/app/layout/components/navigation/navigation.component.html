@@ -1,1 +1,27 @@
-<p>navigation works!</p>
+<div class="navigation-container">
+  <div class="nav-header">
+    <h3>Navigation</h3>
+  </div>
+
+  <mat-nav-list class="nav-list">
+    <ng-container *ngFor="let item of navItems">
+      <mat-list-item 
+        *ngIf="canShowItem(item, (userRoles$ | async) || [])"
+        class="nav-item"
+        [class.active]="isActive(item.route)"
+        (click)="navigate(item.route)">
+        
+        <mat-icon matListItemIcon>{{ item.icon }}</mat-icon>
+        <span matListItemTitle>{{ item.label }}</span>
+      </mat-list-item>
+    </ng-container>
+  </mat-nav-list>
+
+  <div class="nav-footer">
+    <mat-divider></mat-divider>
+    <div class="app-info">
+      <p class="version">Version 1.0.0</p>
+      <p class="copyright">&copy; 2024 Auth App</p>
+    </div>
+  </div>
+</div>
