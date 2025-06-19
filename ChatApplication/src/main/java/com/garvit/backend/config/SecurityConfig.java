@@ -61,7 +61,7 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/api/auth/**", "/test/**", "/public/**", "/h2-console/**").permitAll()
+                        .requestMatchers("/auth/**", "/test/**", "/public/**", "/error/**", "/h2-console/**").permitAll()  // Remove /api prefix
                         .anyRequest().authenticated()
                 )
                 .authenticationProvider(authenticationProvider())
